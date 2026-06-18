@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /email
+Disallow: /meetings
+Disallow: /tasks
+Disallow: /research
+Disallow: /chat
+Disallow: /prompts
+Disallow: /settings
+Disallow: /auth
