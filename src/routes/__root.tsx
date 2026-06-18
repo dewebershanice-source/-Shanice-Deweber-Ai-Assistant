@@ -79,13 +79,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "UbuntuAI helps South African SMEs work smarter, communicate better, and stay compliant with AI-powered email drafting, meeting minutes, task planning, and workplace research.",
       },
       { name: "author", content: "UbuntuAI" },
-      { property: "og:title", content: "UbuntuAI — SA Workplace Assistant" },
+      { property: "og:title", content: "UbuntuAI — South African Workplace Compliance & Productivity Assistant" },
       {
         property: "og:description",
         content: "AI-powered productivity and compliance for South African businesses.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "UbuntuAI — South African Workplace Compliance & Productivity Assistant" },
+      { name: "description", content: "UbunutAI South African Amall and Meduim Size Businesses" },
+      { property: "og:description", content: "UbunutAI South African Amall and Meduim Size Businesses" },
+      { name: "twitter:description", content: "UbunutAI South African Amall and Meduim Size Businesses" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
