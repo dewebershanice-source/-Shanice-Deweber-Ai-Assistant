@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -40,22 +41,16 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">This page didn't load</h1>
         <p className="mt-2 text-sm text-muted-foreground">
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
+            onClick={() => { router.invalidate(); reset(); }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Try again
@@ -77,19 +72,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "UbuntuAI — South African Workplace Compliance & Productivity Assistant" },
+      {
+        name: "description",
+        content:
+          "UbuntuAI helps South African SMEs work smarter, communicate better, and stay compliant with AI-powered email drafting, meeting minutes, task planning, and workplace research.",
+      },
+      { name: "author", content: "UbuntuAI" },
+      { property: "og:title", content: "UbuntuAI — SA Workplace Assistant" },
+      {
+        property: "og:description",
+        content: "AI-powered productivity and compliance for South African businesses.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
       },
     ],
   }),
@@ -102,24 +104,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
+      <head><HeadContent /></head>
+      <body>{children}<Scripts /></body>
     </html>
   );
 }
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <Toaster richColors position="top-right" />
     </QueryClientProvider>
   );
 }
