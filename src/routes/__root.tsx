@@ -90,6 +90,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "UbunutAI South African Amall and Meduim Size Businesses" },
       { property: "og:description", content: "UbunutAI South African Amall and Meduim Size Businesses" },
       { name: "twitter:description", content: "UbunutAI South African Amall and Meduim Size Businesses" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ae316663-5235-4aeb-96ba-bc333f574945/id-preview-5c7926a7--9c01e3f4-dc51-4788-9ce5-b5e587525425.lovable.app-1781852672473.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ae316663-5235-4aeb-96ba-bc333f574945/id-preview-5c7926a7--9c01e3f4-dc51-4788-9ce5-b5e587525425.lovable.app-1781852672473.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
